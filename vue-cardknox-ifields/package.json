@@ -6,7 +6,7 @@
   "module": "dist/vue-cardknox-ifields.esm.js",
   "unpkg": "dist/vue-cardknox-ifields.min.js",
   "browser": {
-    "./sfc": "src/vue-cardknox-ifields.vue"
+    "./sfc": "src/ifields/ifields.vue"
   },
   "scripts": {
     "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
