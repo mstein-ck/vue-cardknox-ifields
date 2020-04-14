@@ -76,12 +76,15 @@ export function _onLoad() {
  * @param {{data: TokenData}} param0
  */
 export function _onToken({ data }) {
+    this.tokenLoading = false;
     if (data.result === ERROR) {
         this.latestErrorTime = new Date();
         this.log("Token Error: " + data.errorMessage);
         if (this.onError) this.onError(data);
+        this.tokenValid = false;
     } else {
         this.xTokenData = data;
+        this.tokenValid = true;
         if (this.onToken) this.onToken(data);
     }
 }
@@ -95,7 +98,7 @@ export function _onUpdate({ data }) {
         isEmpty: data.isEmpty,
         isValid: data.isValid
     };
-    if (data.isValid) {
+    if (data.isValid && !this.tokenValid && !this.tokenLoading) {
         this.getToken();
     }
     if (this.onUpdate) this.onUpdate(data);
