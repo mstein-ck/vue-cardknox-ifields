@@ -1,5 +1,7 @@
 // Import vue component
 import component from './ifields/ifields.vue';
+export { CARD_TYPE, ACH_TYPE, CVV_TYPE } from './ifields/constants';
+
 
 // Declare install function executed by Vue.use()
 export function install(Vue) {

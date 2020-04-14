@@ -149,6 +149,8 @@ export default {
   }
 };
 
+export { CARD_TYPE, ACH_TYPE, CVV_TYPE } from "./constants";
+
 /**
  *
  * @typedef TokenData
