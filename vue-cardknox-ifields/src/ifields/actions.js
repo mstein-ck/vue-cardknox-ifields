@@ -48,6 +48,7 @@ export function ping() {
       action: GET_TOKEN
     };
     this.logAction(GET_TOKEN);
+    this.tokenLoading = true;
     this.postMessage(message);
   }
   /**
