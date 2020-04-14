@@ -99,6 +99,7 @@ export default {
         return {
             type: "card",
             account: {
+                xKey: "",
                 xSoftwareName: "vue-cardknox-ifields",
                 xSoftwareVersion: "1.0.0"
             },

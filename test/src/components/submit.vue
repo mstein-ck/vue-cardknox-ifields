@@ -17,6 +17,7 @@ export default {
     methods: {
         submit() {
             let request = {
+                xKey: "",
                 xSoftwareName: "Test-Vue-iFields",
                 xSoftwareVersion: "1.0",
                 xVersion: "4.5.8",
