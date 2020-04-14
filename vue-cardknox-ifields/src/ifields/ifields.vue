@@ -20,7 +20,7 @@ export default {
       iFrameLoaded: false,
       ifieldDataCache: {},
       latestErrorTime: null,
-      xToken: {}
+      xTokenData: {},
     };
   },
   props: {

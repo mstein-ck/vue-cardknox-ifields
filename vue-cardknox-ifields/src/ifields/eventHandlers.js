@@ -81,7 +81,7 @@ export function _onToken({ data }) {
         this.log("Token Error: " + data.errorMessage);
         if (this.onError) this.onError(data);
     } else {
-        this.xToken = data.xToken;
+        this.xTokenData = data;
         if (this.onToken) this.onToken(data);
     }
 }
