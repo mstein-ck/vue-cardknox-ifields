@@ -7,6 +7,7 @@ import { PING } from './constants';
 export function postMessage(data) {
     if (!this.iFrameLoaded && data.action !== PING) {
         this.log("Iframe not loaded");
+        this.ping();
         return;
     }
     this.$refs.iFrameRef.contentWindow.postMessage(data, "*");
