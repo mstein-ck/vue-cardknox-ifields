@@ -25,11 +25,11 @@
                             :type="CARD_TYPE"
                             :issuer="issuer"
                             :options="ifieldCardOptions"
-                            :onLoad="onLoad"
-                            :onUpdate="onUpdate"
-                            :onSubmit="onSubmit"
-                            :onToken="onCardToken"
-                            :onError="onError"
+                            @load="onLoad"
+                            @update="onUpdate"
+                            @submit="onSubmit"
+                            @token="onCardToken"
+                            @error="onError"
                             :threeDS="threeDS"
                         />
                     </b-field>
@@ -70,11 +70,11 @@
                             :type="CVV_TYPE"
                             :issuer="issuer"
                             :options="ifieldCvvOptions"
-                            :onLoad="onLoad"
-                            :onUpdate="onUpdate"
-                            :onSubmit="onSubmit"
-                            :onToken="onCvvToken"
-                            :onError="onError"
+                            @load="onLoad"
+                            @update="onUpdate"
+                            @submit="onSubmit"
+                            @token="onCvvToken"
+                            @error="onError"
                         />
                     </b-field>
                     <submit :amount="amount" :cardData="cardData" :valid="ready" />

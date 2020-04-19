@@ -9,7 +9,7 @@ import {
     MONTH,
     YEAR,
 } from "./constants";
-  
+
 /**
 *
 * @param {MessageEvent} e
@@ -69,7 +69,7 @@ export function _onLoad() {
     if (this.options.autoSubmit)
         this.enableAutoSubmit(this.options.autoSubmitFormId);
     if (this.options.iFieldstyle) this.setStyle(this.options.iFieldstyle);
-    if (this.onLoad) this.onLoad();
+    this.$emit('load');
 }
 /**
  *
@@ -80,12 +80,12 @@ export function _onToken({ data }) {
     if (data.result === ERROR) {
         this.latestErrorTime = new Date();
         this.log("Token Error: " + data.errorMessage);
-        if (this.onError) this.onError(data);
+        this.$emit('error', { data });
         this.tokenValid = false;
     } else {
         this.xTokenData = data;
         this.tokenValid = true;
-        if (this.onToken) this.onToken(data);
+        this.$emit('token', { data });
     }
 }
 /**
@@ -101,7 +101,7 @@ export function _onUpdate({ data }) {
     if (data.isValid && !this.tokenValid && !this.tokenLoading) {
         this.getToken();
     }
-    if (this.onUpdate) this.onUpdate(data);
+    this.$emit('update', { data });
 }
 
 /**
@@ -110,7 +110,7 @@ export function _onUpdate({ data }) {
  */
 export function _onSubmit({ data }) {
     //call first before submit is triggered
-    if (this.onSubmit) this.onSubmit(data);
+    this.$emit('submit', { data });
     if (data && data.formId) {
         document.getElementById(data.formId).dispatchEvent(
             new Event("submit", {
