@@ -23,14 +23,19 @@
                             version="2.6.2002.1301-beta"
                             :account="account"
                             :type="CARD_TYPE"
-                            :issuer="issuer"
                             :options="ifieldCardOptions"
+                            :threeDS="threeDS"
                             @load="onLoad"
-                            @update="onUpdate"
                             @submit="onSubmit"
                             @token="onCardToken"
                             @error="onError"
-                            :threeDS="threeDS"
+                            @keypress="onUpdate"
+                            @click="onUpdate"
+                            @input="onUpdate"
+                            @focus="onUpdate"
+                            @dblclick="onUpdate"
+                            @change="onUpdate"
+                            @blur="onUpdate"
                         />
                     </b-field>
                     <b-field label="Expiration">
@@ -71,10 +76,16 @@
                             :issuer="issuer"
                             :options="ifieldCvvOptions"
                             @load="onLoad"
-                            @update="onUpdate"
                             @submit="onSubmit"
                             @token="onCvvToken"
                             @error="onError"
+                            @keypress="onUpdate"
+                            @click="onUpdate"
+                            @input="onUpdate"
+                            @focus="onUpdate"
+                            @dblclick="onUpdate"
+                            @change="onUpdate"
+                            @blur="onUpdate"
                         />
                     </b-field>
                     <submit :amount="amount" :cardData="cardData" :valid="ready" />
@@ -184,24 +195,26 @@ export default {
         onLoad() {
             console.log("Iframe loaded");
         },
-        onUpdate(data) {
-            // console.log("Iframe Updated", data);
+        onUpdate({ data }) {
+            console.log(`Iframe ${data.event} received`);
             if (data.issuer) this.issuer = data.issuer;
         },
-        onSubmit(data) {
-            console.log("IFrame submitted", data);
+        onSubmit() {
+            console.log("IFrame submitted");
         },
-        onCardToken(data) {
+        onCardToken({ data }) {
+            console.log("IFrame card token received");
             this.cardData = Object.assign({}, this.cardData, {
                 cardToken: data.xToken
             });
         },
-        onCvvToken(data) {
+        onCvvToken({ data }) {
+            console.log("IFrame cvv token received");
             this.cardData = Object.assign({}, this.cardData, {
                 cvvToken: data.xToken
             });
         },
-        onError(data) {
+        onError({ data }) {
             console.error("IFrame errored", data);
         }
     }

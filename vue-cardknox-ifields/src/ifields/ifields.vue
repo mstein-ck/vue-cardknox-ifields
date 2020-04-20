@@ -48,12 +48,7 @@ export default {
         return {};
       }
     },
-    issuer: String,
-    onSubmit: Function,
-    onUpdate: Function,
-    onToken: Function,
-    onLoad: Function,
-    onError: Function
+    issuer: String
   },
   methods: {
     //----------------------Events

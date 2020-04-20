@@ -101,6 +101,31 @@ export function _onUpdate({ data }) {
     if (data.isValid && !this.tokenValid && !this.tokenLoading) {
         this.getToken();
     }
+    switch (data.event) {
+        case 'input':
+            this.$emit('input', { data });
+            break;
+        case 'click':
+            this.$emit('click', { data });
+            break;
+        case 'focus':
+            this.$emit('focus', { data });
+            break;
+        case 'dblclick':
+            this.$emit('dblclick', { data });
+            break;
+        case 'change':
+            this.$emit('change', { data });
+            break;
+        case 'blur':
+            this.$emit('blur', { data });
+            break;
+        case 'keypress':
+            this.$emit('keypress', { data });
+            break;
+        default:
+            break;
+    }
     this.$emit('update', { data });
 }
 
