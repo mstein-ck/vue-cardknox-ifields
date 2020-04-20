@@ -1,5 +1,5 @@
 <template>
-  <iframe :src="src" ref="iFrameRef" title="type" />
+  <iframe :src="'https://cdn.cardknox.com/ifields/' + version + '/ifield.htm'" ref="iFrameRef" :title="type" />
 </template>
 
 <script>
@@ -26,7 +26,7 @@ export default {
     };
   },
   props: {
-    src: String,
+    version: String,
     type: String,
     account: {
       type: Object,

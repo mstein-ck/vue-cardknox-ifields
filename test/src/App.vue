@@ -20,7 +20,7 @@
                     </b-field>
                     <b-field label="Card Number">
                         <ifields
-                            src="https://cdn.cardknox.com/ifields/2.6.2002.1301-beta/ifield.htm"
+                            version="2.6.2002.1301-beta"
                             :account="account"
                             :type="CARD_TYPE"
                             :issuer="issuer"
@@ -65,7 +65,7 @@
                     </b-field>
                     <b-field label="CVV">
                         <ifields
-                            src="https://cdn.cardknox.com/ifields/2.6.2002.1301-beta/ifield.htm"
+                            version="2.6.2002.1301-beta"
                             :account="account"
                             :type="CVV_TYPE"
                             :issuer="issuer"
