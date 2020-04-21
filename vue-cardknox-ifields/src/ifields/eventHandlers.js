@@ -147,14 +147,11 @@ export function _onSubmit({ data }) {
  * @typedef SubmitData
  * @property {string} formId
  */
-
 /**
  *
  * @typedef TokenData
- * @property {string} result
  * @property {string} xToken
  * @property {string} xTokenType
- * @property {string} errorMessage
  * @property {string} xCardDataType
  * @property {string} xMaskedData
  * @property {string} xIssuer
@@ -162,7 +159,16 @@ export function _onSubmit({ data }) {
  * @property {string} xTokenVersion
  */
 /**
+ * @typedef ErrorData
+ * @property {string} result
+ * @property {string} errorMessage
+ * @property {string} xTokenType
+ */
+/**
  * @typedef UpdateData
+ * @property {string} event
+ * @property {string} issuer
+ * @property {boolean} ifieldValueChanged
  * @property {boolean} isEmpty
  * @property {boolean} isValid
  * @property {number} length
