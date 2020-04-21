@@ -4,10 +4,11 @@ import {
     ERROR,
     AUTO_SUBMIT,
     UPDATE,
-    CARD_TYPE,
     AMOUNT,
     MONTH,
     YEAR,
+    CARD_TYPE,
+    CVV_TYPE
 } from "./constants";
 
 /**
@@ -37,12 +38,7 @@ export function _onMessage(e) {
         default:
             break;
     }
-    if (
-        this.threeDS.enable3DS &&
-        data.eci &&
-        data.eci.length &&
-        this.type === CARD_TYPE
-    ) {
+    if (this.threeDS.enable3DS && data.eci && data.eci.length && this.type === CARD_TYPE) {
         this.log("Message received: eci");
         this.postMessage(data);
     }
@@ -50,25 +46,25 @@ export function _onMessage(e) {
 export function _onLoad() {
     this.iFrameLoaded = true;
     this.setAccount(this.account);
-    if (this.threeDS.enable3DS) {
-        this.enable3DS(
-            this.threeDS.waitForResponse,
-            this.threeDS.waitForResponseTimeout
-        );
+    if (this.type === CARD_TYPE && this.threeDS.enable3DS) {
+        this.enable3DS(this.threeDS.waitForResponse, this.threeDS.waitForResponseTimeout);
         this.update3DS(AMOUNT, this.threeDS.amount);
         this.update3DS(MONTH, this.threeDS.month);
         this.update3DS(YEAR, this.threeDS.year);
     }
     this.init();
-    if (this.issuer) this.updateIssuer(this.issuer);
+    if (this.type === CVV_TYPE && this.issuer)
+        this.updateIssuer(this.issuer);
     if (this.options.placeholder)
         this.setPlaceholder(this.options.placeholder);
-    if (this.options.enableLogging) this.enableLogging();
-    if (this.options.autoFormat)
+    if (this.options.enableLogging)
+        this.enableLogging();
+    if (this.type === CARD_TYPE && this.options.autoFormat)
         this.enableAutoFormat(this.options.autoFormatSeparator);
     if (this.options.autoSubmit)
         this.enableAutoSubmit(this.options.autoSubmitFormId);
-    if (this.options.iFieldstyle) this.setStyle(this.options.iFieldstyle);
+    if (this.options.iFieldstyle)
+        this.setStyle(this.options.iFieldstyle);
     this.$emit('load');
 }
 /**
@@ -80,8 +76,8 @@ export function _onToken({ data }) {
     if (data.result === ERROR) {
         this.latestErrorTime = new Date();
         this.log("Token Error: " + data.errorMessage);
-        this.$emit('error', { data });
         this.tokenValid = false;
+        this.$emit('error', { data });
     } else {
         this.xTokenData = data;
         this.tokenValid = true;

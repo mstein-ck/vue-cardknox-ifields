@@ -94,6 +94,7 @@ export default {
       this.setAccount(val);
     },
     threeDS: function(val, oldVal) {
+      if (this.type !== CARD_TYPE) return;
       if (val.enable3DS) {
         if (!oldVal.enable3DS)
           this.enable3DS(val.waitForResponse, val.waitForResponseTimeout);
@@ -106,10 +107,10 @@ export default {
       }
     },
     issuer: function(val) {
-      this.updateIssuer(val);
+      if (this.type === CVV_TYPE) this.updateIssuer(val);
     },
     options: function(val, oldVal) {
-      if (val.autoFormat) {
+      if (this.type === CARD_TYPE && val.autoFormat) {
         if (
           val.autoFormat !== oldVal.autoFormat ||
           val.autoFormatSeparator !== oldVal.autoFormatSeparator
