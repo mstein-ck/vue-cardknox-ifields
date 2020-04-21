@@ -165,3 +165,9 @@ export function clearIfield() {
   this.logAction(CLEAR_DATA);
   this.postMessage(message);
 }
+/**
+ * @typedef AccountData
+ * @property {string} xKey
+ * @property {string} xSoftwareName
+ * @property {string} xSoftwareVersion
+ */

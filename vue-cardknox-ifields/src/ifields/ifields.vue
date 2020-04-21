@@ -145,35 +145,4 @@ export default {
 };
 
 export { CARD_TYPE, ACH_TYPE, CVV_TYPE } from "./constants";
-
-/**
- *
- * @typedef TokenData
- * @property {string} result
- * @property {string} xToken
- * @property {string} xTokenType
- * @property {string} errorMessage
- * @property {string} xCardDataType
- * @property {string} xMaskedData
- * @property {string} xIssuer
- * @property {string} xTokenCreationTime
- * @property {string} xTokenVersion
- */
-/**
- * @typedef UpdateData
- * @property {boolean} isEmpty
- * @property {boolean} isValid
- * @property {number} length
- * @property {number} cardNumberLength
- */
-/**
- * @typedef SubmitData
- * @property {string} formId
- */
-/**
- * @typedef AccountData
- * @property {string} xKey
- * @property {string} xSoftwareName
- * @property {string} xSoftwareVersion
- */
 </script>
