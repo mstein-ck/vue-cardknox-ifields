@@ -69,7 +69,7 @@ export function _onLoad() {
 }
 /**
  *
- * @param {{data: TokenData}} param0
+ * @param {{data: TokenData | ErrorData}} param0
  */
 export function _onToken({ data }) {
     this.tokenLoading = false;
