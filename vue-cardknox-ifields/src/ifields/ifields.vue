@@ -1,5 +1,9 @@
 <template>
-  <iframe :src="'https://cdn.cardknox.com/ifields/' + version + '/ifield.htm'" ref="iFrameRef" :title="type" />
+  <iframe
+    :src="'https://cdn.cardknox.com/ifields/' + version + '/ifield.htm'"
+    ref="iFrameRef"
+    :title="type"
+  />
 </template>
 
 <script>
@@ -134,7 +138,9 @@ export default {
       return {
         tokenValid: {
           get() {
-            return this._tokenValid && this.xTokenData && this.xTokenData.xToken;
+            return (
+              this._tokenValid && this.xTokenData && this.xTokenData.xToken
+            );
           },
           set(value) {
             this._tokenValid = value;
