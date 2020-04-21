@@ -1,7 +1,7 @@
 {
   "name": "vue-cardknox-ifields",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Vue component for Cardknox© iFields>",
   "main": "dist/vue-cardknox-ifields.umd.js",
   "module": "dist/vue-cardknox-ifields.esm.js",
   "unpkg": "dist/vue-cardknox-ifields.min.js",
@@ -14,7 +14,14 @@
     "build:es": "rollup --config rollup.config.js --format es --file dist/vue-cardknox-ifields.esm.js",
     "build:unpkg": "rollup --config rollup.config.js --format iife --file dist/vue-cardknox-ifields.min.js"
   },
-  "keywords": [],
+  "keywords": [
+    "vue",
+    "cardknox",
+    "ifields",
+    "payment",
+    "credit card",
+    "gateway"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
