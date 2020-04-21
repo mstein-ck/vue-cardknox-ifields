@@ -14,9 +14,9 @@
                     Your Total:
                     <span id="total-amount">${{amount}}</span>
                 </p>
-                <section class="box">
+                <section class="box card-box">
                     <b-field label="Name">
-                        <b-input v-model="cardData.name" ref="inputRef"></b-input>
+                        <b-input placeholder="Name" v-model="cardData.name" ref="inputRef"></b-input>
                     </b-field>
                     <b-field label="Card Number">
                         <ifields
@@ -97,7 +97,7 @@
 
 <script>
 import ifields, { CARD_TYPE, CVV_TYPE } from "vue-cardknox-ifields";
-import submit from './components/submit';
+import submit from "./components/submit";
 import "buefy/dist/buefy.css";
 
 export default {
@@ -108,7 +108,6 @@ export default {
     },
     data: function() {
         return {
-            type: "card",
             account: {
                 xKey: "",
                 xSoftwareName: "vue-cardknox-ifields",
@@ -120,7 +119,7 @@ export default {
                 autoFormatSeparator: " ",
                 placeholder: "Card Number",
                 iFieldstyle: {
-                    width: "94%",
+                    width: "365px",
                     "max-width": "100%",
                     "box-shadow": "inset 0 1px 2px rgba(10, 10, 10, 0.1)",
                     "background-color": "white",
@@ -238,6 +237,11 @@ iframe {
     height: 40px;
     width: 100%;
     max-width: 100%;
+}
+.card-box {
+    max-width: 450px;
+    min-width: 406px;
+    width: 425px;
 }
 #total {
     color: #00103a;
