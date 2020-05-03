@@ -23,7 +23,7 @@
     "gateway"
   ],
   "author": "",
-  "license": "ISC",
+  "license": "GPL-3.0",
   "devDependencies": {
     "@rollup/plugin-buble": "^0.21.3",
     "@rollup/plugin-commonjs": "^11.1.0",
