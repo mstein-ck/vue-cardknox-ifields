@@ -1,6 +1,6 @@
 # vue-cardknox-ifields
 
-## A Vue component for Cardknox© iFields
+## A Vue component for Cardknox iFields
 
 ---
 
